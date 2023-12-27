@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Giphy API</title>
+    <link rel="stylesheet" href="/style.css" />
+    
+  </head>
+  <body>
+    <main>
+    <div class="header">
+      <span>Stickery</span>
+    </div>
+
+    <div class="search">
+      <form action="/search" method="post" class="frm">
+        <input type="text" name="seacrh" id="srch" />
+        <button class="btn-1">search</button>
+      </form>
+    </div>
+
+    <div class="results">
+
+        
+        <% if(api) {%>}
+        <%for(var i = 0; i < api.length; i++){%>
+            <div class="card">
+                <img src= "<%= api[i].images.fixed_width_downsampled.url%>" + alt="" class="gifs">
+            </div>
+        <%}%>
+        
+        <%} else{%>
+            <p style="font-size: 25px; color: white';">Enter the keyword</p>
+        <%}%>
+    </div>
+</main>
+    <%- include('footer') %>
+  </body>
+</html>
